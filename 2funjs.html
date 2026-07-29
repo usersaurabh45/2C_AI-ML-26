@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Box Example</title>
+
+    <script>
+        function info() {
+            let age = parseInt(prompt("Enter your age:"));
+
+            if (age >= 18) {
+                let c = confirm("Do you want to submit your value?");
+
+                if (c) {
+                    alert("Your response has been submitted.");
+                } else {
+                    alert("Not submitted. Thank you!");
+                }
+            } else {
+                alert("You are not eligible.");
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <input type="button" value="Result" onclick="info()">
+
+</body>
+</html>
