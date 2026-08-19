@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            width: 350px;
+            margin: 50px auto;
+            padding: 25px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .error {
+            color: red;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Registration Form</h2>
+
+    <form onsubmit="return validateForm()">
+
+        <label>Name:</label>
+        <input type="text" id="name" placeholder="Enter your name">
+        <span id="nameError" class="error"></span>
+
+        <label>Email:</label>
+        <input type="text" id="email" placeholder="Enter your email">
+        <span id="emailError" class="error"></span>
+
+        <label>Password:</label>
+        <input type="password" id="password" placeholder="Enter password">
+        <span id="passwordError" class="error"></span>
+
+        <label>Re-enter Password:</label>
+        <input type="password" id="repassword" placeholder="Re-enter password">
+        <span id="repasswordError" class="error"></span>
+
+        <label>Mobile:</label>
+        <input type="text" id="mobile" placeholder="Enter mobile number">
+        <span id="mobileError" class="error"></span>
+
+        <br><br>
+       <button type="submit">Submit</button>
+
+    </form>
+</div>
+
+<script>
+function validateForm() {
+
+    // Get values
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let password = document.getElementById("password").value;
+    let repassword = document.getElementById("repassword").value;
+    let mobile = document.getElementById("mobile").value.trim();
+
+    // Clear previous errors
+    document.getElementById("nameError").innerHTML = "";
+    document.getElementById("emailError").innerHTML = "";
+    document.getElementById("passwordError").innerHTML = "";
+    document.getElementById("repasswordError").innerHTML = "";
+    document.getElementById("mobileError").innerHTML = "";
+
+    let valid = true;
+
+    // Name validation
+    if (name === "") {
+        document.getElementById("nameError").innerHTML = "Name is required";
+        valid = false;
+    }
+
+    // Email validation
+    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (email === "") {
+        document.getElementById("emailError").innerHTML = "Email is required";
+        valid = false;
+    } 
+    else if (!emailPattern.test(email)) {
+        document.getElementById("emailError").innerHTML = "Enter a valid email";
+        valid = false;
+    }
+
+    // Password validation
+    if (password === "") {
+        document.getElementById("passwordError").innerHTML = "Password is required";
+        valid = false;
+    } 
+    else if (password.length < 6) {
+        document.getElementById("passwordError").innerHTML =
+            "Password must be at least 6 characters";
+        valid = false;
+    }
+
+    // Re-enter password validation
+    if (repassword === "") {
+        document.getElementById("repasswordError").innerHTML =
+            "Please re-enter password";
+        valid = false;
+    } 
+    else if (password !== repassword) {
+        document.getElementById("repasswordError").innerHTML =
+            "Passwords do not match";
+        valid = false;
+    }
+
+    // Mobile validation
+    let mobilePattern = /^[0-9]{10}$/;
+
+    if (mobile === "") {
+        document.getElementById("mobileError").innerHTML =
+            "Mobile number is required";
+        valid = false;
+    } 
+    else if (!mobilePattern.test(mobile)) {
+        document.getElementById("mobileError").innerHTML =
+            "Enter a valid 10-digit mobile number";
+        valid = false;
+    }
+
+    // Final result
+    if (valid) {
+        alert("Registration Successful!");
+    }
+
+    return valid;
+}
+</script>
+
+</body>
+</html>>
