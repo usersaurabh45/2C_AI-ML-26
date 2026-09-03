@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        let first = "Saurabh";
+        let last = "Pal";
+
+        document.write("My Name is " + first + " " + last);
+
+        console.log(`My Name is ${first} ${last}`);
+
+        let fullName = `My Name is ${first} ${last}`;
+
+        function getFullName(first, last) {
+            return `${first} ${last}`;
+        }
+
+        let Name = `Hello ${getFullName("Saurabh", "Pal")}`;
+
+        console.log(Name);
+    </script>
+
+</body>
+</html>
