@@ -1,13 +1,10 @@
 let name = "Saurabh";
 let Roll = 101;
-
-// Normal way
 let student = {
     name: name,
     Roll: Roll
 };
 
-// Shorthand property
 let student2 = {
     name,
     Roll
